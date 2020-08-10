@@ -9,8 +9,8 @@ The Drupal Pattern module.
 
 ### Tutorials, Training, & Presentations
 
-- https://youtu.be/8Ms4KIV4GP4
-- https://www.youtube.com/watch?v=vlVmX7g0ygo
+- [https://youtu.be/8Ms4KIV4GP4](https://youtu.be/8Ms4KIV4GP4)
+- [https://www.youtube.com/watch?v=vlVmX7g0ygo](https://youtu.be/8Ms4KIV4GP4)
 
 ### Blog
 
