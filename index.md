@@ -14,7 +14,7 @@ The Drupal Pattern module.
 
 ### Blog
 
-- Coming Soon
+- [8/10/2020 - Creating your first Patternkit pattern](blog/2020-08-10-your-first-pattern.md)
 
 ### Roadmap
 
