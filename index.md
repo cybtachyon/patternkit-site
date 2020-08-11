@@ -1,6 +1,6 @@
 ## Patternkit
 
-The Drupal Pattern module.
+The Drupal pattern module.
 
 - [Drupal.org Project Page](https://www.drupal.org/project/patternkit)
 - [Drupal.org Documentation](https://www.drupal.org/docs/contributed-modules/patternkit)
