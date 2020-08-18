@@ -21,6 +21,7 @@ First, make the template in the theme. We're using the example name 'my_theme', 
 
 **docroot/themes/custom/my_theme/lib/patterns/quote/quote.twig**
 
+<!-- {% raw %} -->
 ```twig
 <blockquote class="quote-card">
   <p>
@@ -34,12 +35,14 @@ First, make the template in the theme. We're using the example name 'my_theme', 
 {# @see https://www.drupal.org/docs/theming-drupal/adding-stylesheets-css-and-javascript-js-to-a-drupal-theme #}
 {{ attach_library('my_theme/quote') }}
 ```
+<!-- {% endraw %} -->
 
 Next, let's make sure our new quote is styled properly. You could also add your css to a main CSS file loaded at all times by the theme - up to you! For demonstration purposes, we'll keep our CSS with the pattern.
 
 **docroot/themes/custom/my_theme/lib/patterns/quote/quote.css**
 
-```
+<!-- {% raw %} -->
+```css
 .quote-card {
   background: #fff;
   box-sizing: border-box;
@@ -92,11 +95,13 @@ Next, let's make sure our new quote is styled properly. You could also add your 
   }
 }
 ```
+<!-- {% endraw %} -->
 
 Let's make sure the theme loads our CSS and our new pattern. If you don't have a base styles CSS file, just make an empty one for now at `docroot/themes/custom/my_theme/css/styles.css`. Alternatively, if you don't have any base styles, you could skip the css and put an empty `drupalSettings: {}` line in `my_theme_library`.
 
 **docroot/themes/custom/my_theme/my_theme.libraries.yml**
 
+<!-- {% raw %} -->
 ```yaml
 quote:
   css:
@@ -110,11 +115,13 @@ my_theme_library:
   patterns:
     lib/patterns: {plugin: twig}
 ```
+<!-- {% endraw %} -->
 
 ## Add a JSON schema
 
 It's great making good-looking templates, but what really makes Patternkit shine is being able to edit the data in Drupal. For that, we need a JSON schema. We need to conform to the JSON Schema format defined at [JSON-Schema.org](https://json-schema.org/understanding-json-schema/basics.html).
 
+<!-- {% raw %} -->
 ```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
@@ -135,6 +142,7 @@ It's great making good-looking templates, but what really makes Patternkit shine
   }
 }
 ```
+<!-- {% endraw %} -->
 
 ## Clear caches
 
