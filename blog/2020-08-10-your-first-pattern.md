@@ -1,6 +1,6 @@
 # Creating your first Patternkit Pattern
 
-![](/images/patternkit_blog_quote.png)
+![](../images/patternkit_blog_quote.png)
 
 Patternkit is a module that lets you drag and drop your Drupal theme templates, patterns, and components into layouts, whether using Layout Builder, Panels, or the default Block Layout editor. See more at [https://drupal.org/project/patternkit](https://drupal.org/project/patternkit).
 
@@ -182,15 +182,15 @@ Usually the steps are like so:
 1. Enable layout builder for your content type.
 1. Edit/create some content of that type and edit the layout.
 
-![](/images/patternkit_blog_quote_blocklist.png)
+![](../images/patternkit_blog_quote_blocklist.png)
 
 You should see a new '[Patternkit] Quote Pattern' block. Add it to the layout! You can fill in the fields yourself, or you can use Drupal tokens such as `[node:body]` to populate your quote pattern.
 
-![](/images/patternkit_blog_quote_editor.png)
+![](../images/patternkit_blog_quote_editor.png)
 
 ## ..surprise step - party!
 
-![](/images/patternkit_blog_quote_layout.png)
+![](../images/patternkit_blog_quote_layout.png)
 
 Welcome to the new world of Patternkit!
 
