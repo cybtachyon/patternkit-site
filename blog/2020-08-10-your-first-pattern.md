@@ -1,21 +1,37 @@
 # Creating your first Patternkit Pattern
 
+![](/images/patternkit_blog_quote.png)
+
 Patternkit is a module that lets you drag and drop your Drupal theme templates, patterns, and components into layouts, whether using Layout Builder, Panels, or the default Block Layout editor. See more at [https://drupal.org/project/patternkit](https://drupal.org/project/patternkit).
 
 Assuming you already know how to create a Drupal theme, or have an existing theme you're modifying, it's just a few steps to add a pattern to the Patternkit list and use the editor.
 
-1. Add your new pattern / choose an existing pattern
-1. Add a JSON schema file in the same directory
-1. Clear caches
-1. Add via Layout Builder!
+1. **Add your new pattern / choose an existing pattern**
+1. **Add a JSON schema file in the same directory**
+1. **Clear caches**
+1. **Add via Layout Builder!**
+
+If you're looking for a place to start building with Drupal locally, check out [https://docksal.io/](https://docksal.io/).
+
+Also make sure the modules we're using today are enabled.
+
+```
+drush en -y layout_builder patternkit
+```
 
 ## Add your new pattern / choose an existing pattern
 Many themes include lots of fun and interesting patterns to use for building pages - especially those that are based around Pattern LAB or support JSON Schema out of the box.
 
 Here are some examples:
-
+ - [Dev only] [Red Hat Patternfly](https://github.com/drupal-pattern-lab/patternfly_theme)
+ - [Needs JSON Schema] [Forum One Gesso](https://www.drupal.org/project/gesso)
+ - [Needs JSON Schema] [Phase2 Particle 11](https://github.com/phase2/particle/tree/eleven)
+ - [Needs JSON Schema] [Shila Starter](https://github.com/aleksip/shila-drupal-theme)
+ - [Needs JSON Schema] [Acquia Cog Theme](https://github.com/acquia-pso/cog)
 
 Let's take the time to make one of our own though. If you don't already have a theme, create a new one. You can learn how at [Drupal.org Docs](https://www.drupal.org/docs/theming-drupal) - the most important thing is that we have a `.info.yml` file.
+
+> For the lazy, `drush generate theme --directory=themes/custom --answers='{"name": "My Theme", "machine_name": "my_theme"}'`
 
 First, make the template in the theme. We're using the example name 'my_theme', but you can choose whatever you like. You can pick any directory, we'll just need it for later to add it to the list of patterns. We'll use a custom theme and stick the pattern in a 'lib/patterns' folder for now. You could also use the 'templates' directory or anywhere else you like.
 
@@ -25,7 +41,7 @@ First, make the template in the theme. We're using the example name 'my_theme', 
 ```twig
 <blockquote class="quote-card">
   <p>
-    {{quote}}
+    {{quote|raw}}
   </p>      
   <cite>
     {{citation}}
@@ -110,16 +126,18 @@ quote:
 
 my_theme_library:
   css:
-    theme:
+    base:
       css/styles.css: {}
   patterns:
-    lib/patterns: {plugin: twig}
+    lib: {plugin: twig}
 ```
 <!-- {% endraw %} -->
 
 ## Add a JSON schema
 
 It's great making good-looking templates, but what really makes Patternkit shine is being able to edit the data in Drupal. For that, we need a JSON schema. We need to conform to the JSON Schema format defined at [JSON-Schema.org](https://json-schema.org/understanding-json-schema/basics.html).
+
+**docroot/themes/custom/my_theme/lib/patterns/quote/quote.json**
 
 <!-- {% raw %} -->
 ```json
@@ -146,17 +164,33 @@ It's great making good-looking templates, but what really makes Patternkit shine
 
 ## Clear caches
 
-See [https://www.drupal.org/docs/user_guide/en/prevent-cache-clear.html](https://www.drupal.org/docs/user_guide/en/prevent-cache-clear.html).
+And enable your new theme if it isn't already. See [https://www.drupal.org/docs/user_guide/en/prevent-cache-clear.html](https://www.drupal.org/docs/user_guide/en/prevent-cache-clear.html).
 
-If you're lazy, `drush cr`.
+```
+drush theme_enable my_theme
+drush config-set system.theme default my_theme
+drush cr
+```
 
 ## Add via Layout Builder
+Or whatever block placement tool you like.
 
 See [https://www.drupal.org/docs/8/core/modules/layout-builder/building-layouts-using-the-layout-builder-ui](https://www.drupal.org/docs/8/core/modules/layout-builder/building-layouts-using-the-layout-builder-ui) if you've never used Layout Builder before.
 
+Usually the steps are like so:
+1. Enable layout builder
+1. Enable layout builder for your content type.
+1. Edit/create some content of that type and edit the layout.
+
+![](/images/patternkit_blog_quote_blocklist.png)
+
 You should see a new '[Patternkit] Quote Pattern' block. Add it to the layout! You can fill in the fields yourself, or you can use Drupal tokens such as `[node:body]` to populate your quote pattern.
 
+![](/images/patternkit_blog_quote_editor.png)
+
 ## ..surprise step - party!
+
+![](/images/patternkit_blog_quote_layout.png)
 
 Welcome to the new world of Patternkit!
 
