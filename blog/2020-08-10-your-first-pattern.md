@@ -31,7 +31,10 @@ Here are some examples:
 
 Let's take the time to make one of our own though. If you don't already have a theme, create a new one. You can learn how at [Drupal.org Docs](https://www.drupal.org/docs/theming-drupal) - the most important thing is that we have a `.info.yml` file.
 
-> For the lazy, `drush generate theme --directory=themes/custom --answers='{"name": "My Theme", "machine_name": "my_theme"}'`
+> For the lazy
+```
+drush generate theme --directory=themes/custom --answers='{"name": "My Theme", "machine_name": "my_theme"}'
+```
 
 First, make the template in the theme. We're using the example name 'my_theme', but you can choose whatever you like. You can pick any directory, we'll just need it for later to add it to the list of patterns. We'll use a custom theme and stick the pattern in a 'lib/patterns' folder for now. You could also use the 'templates' directory or anywhere else you like.
 
